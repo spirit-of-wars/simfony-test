@@ -7,6 +7,8 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class JokeStorage
 {
+
+    const FILE_NAME = 'jokes.txt';
     protected $fileSystem;
 
     public function __construct(Filesystem $filesystem){
@@ -15,6 +17,6 @@ class JokeStorage
 
     public function saveJoke(Joke $joke)
     {
-        $this->fileSystem->appendToFile('ololo.txt', $joke->getText() . PHP_EOL);
+        $this->fileSystem->appendToFile(self::FILE_NAME, $joke->getText() . PHP_EOL);
     }
 }
